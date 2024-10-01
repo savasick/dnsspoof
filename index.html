@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+        body {
+          background-color: #000;
+          color: #00ff00;
+          font-family: "Courier New", monospace;
+          font-size: 42px;
+          height: 100vh;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        </style>
+    </head>
+    <body>
+      <h1 id="hackerText">Hacked</h1>
+      <script>
+        const textElement = document.getElementById('hackerText');
+        const originalText = textElement.innerHTML;
+
+        function scrambleText() {
+          let scrambledText = '';
+
+          for (let i = 0; i < originalText.length; i++) {
+            if (Math.random() < 0.5) {
+              scrambledText += String.fromCharCode(Math.random() * 94 + 33);
+            } else {
+              scrambledText += originalText[i];
+            }
+          }
+
+          scrambledText = scrambledText.substring(0, originalText.length);
+
+          textElement.innerHTML = scrambledText;
+        }
+
+        setInterval(scrambleText, 50);
+      </script>
+    </body>
+</html>
